@@ -54,8 +54,3 @@ Gardez ces comptes pour test local; supprimez-les ou changez les mots de passe e
 - Ce dépôt contient des pages déjà fonctionnelles : Dashboard, Patients, Consultations, Rendez‑vous, Utilisateurs.
 - Par défaut le frontend consomme `/api` (proxy). En production, configurez `FRONTEND_URL` et le `baseURL` si besoin.
 
----
-Si vous voulez, je peux :
-- nettoyer les données de démonstration avant le commit, ou
-- préparer le repo GitHub + push automatique (vous fournissez le compte/remote), ou
-- créer les fichiers de déploiement (ex: `vercel.json`) prêts pour Vercel.
