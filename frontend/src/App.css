@@ -1,0 +1,317 @@
+/* frontend/src/App.css */
+
+/* ── Reset & base ─────────────────────────────────────── */
+:root {
+  --border:    #e2e2e2;
+  --text:      #444;
+  --text-h:    #111;
+  --accent-bg: #f5f5f5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: #fafafa;
+}
+
+/* ── Layout principal ─────────────────────────────────── */
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+.app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--text-h);
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.role-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #e8f4fd;
+  color: #1a6fa3;
+  letter-spacing: 0.04em;
+}
+
+.logout-btn {
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: #a93226;
+  cursor: pointer;
+}
+
+.logout-btn:hover { background: #fdecea; }
+
+/* ── Cards ────────────────────────────────────────────── */
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.card h2 { margin: 0 0 14px; font-size: 16px; color: var(--text-h); }
+
+/* ── Stats grid ───────────────────────────────────────── */
+.stats-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.stat-card p {
+  margin: 8px 0 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+/* ── Formulaires ──────────────────────────────────────── */
+.patient-form {
+  display: grid;
+  gap: 10px;
+}
+
+.patient-form input,
+.patient-form select,
+.patient-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.patient-form button,
+button {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.patient-form button:hover { background: #ebebeb; }
+.patient-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.secondary {
+  background: transparent;
+  color: var(--text-h);
+}
+
+.danger {
+  background: #fdecea;
+  color: #a93226;
+  border-color: #f5c6c3;
+}
+
+.danger:hover { background: #fad3d0; }
+
+/* ── Recherche & filtres ──────────────────────────────── */
+.search-input {
+  width: 100%;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.filter-row { margin-bottom: 12px; }
+.filter-row label { display: block; margin-bottom: 6px; font-size: 13px; }
+
+/* ── Liste patients / rendez-vous ─────────────────────── */
+.patient-list { display: grid; gap: 10px; }
+
+.patient-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fff;
+}
+
+.patient-item strong { font-size: 14px; color: var(--text-h); }
+.patient-item p { margin: 4px 0 0; font-size: 13px; }
+
+.actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* ── Badges statut ────────────────────────────────────── */
+.status-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+.status-planifie  { background: #e8f4fd; color: #1a6fa3; }
+.status-termine   { background: #eafaf1; color: #1c7c46; }
+.status-annule    { background: #fdecea; color: #a93226; }
+
+/* ── Messages erreur / succès ─────────────────────────── */
+.ok    { color: #1c7c46; }
+.error { color: #a93226; font-size: 13px; margin: 4px 0; }
+
+/* ═══════════════════════════════════════════════════════
+   PAGE DE LOGIN
+══════════════════════════════════════════════════════ */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  padding: 16px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+}
+
+.login-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #1a6fa3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.login-title {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-h);
+}
+
+.login-sub {
+  margin: 6px 0 24px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.login-form {
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.field input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #1a6fa3;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 11px;
+  background: #1a6fa3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.15s;
+}
+
+.login-btn:hover    { background: #155d8a; }
+.login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.login-error {
+  margin: 0;
+  font-size: 13px;
+  color: #a93226;
+  background: #fdecea;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
