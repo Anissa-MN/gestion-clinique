@@ -28,16 +28,55 @@ export default function DashboardPage() {
   if (loading) return <div className="loading-center"><div className="spinner"/></div>
 
   return (
-    <div>
+    <div className="page-body">
+      <div className="page-header">
+        <div>
+          <h2 className="page-title">Tableau de bord</h2>
+          <p className="page-subtitle">Aperçu général de la clinique</p>
+        </div>
+      </div>
+
       <section className="stats-grid">
-        <article className="stat-card"><h3>Patients</h3><p>{counts.patients}</p></article>
-        <article className="stat-card"><h3>Rendez‑vous</h3><p>{counts.appointments}</p></article>
-        <article className="stat-card"><h3>Consultations</h3><p>{counts.consultations}</p></article>
-        <article className="stat-card"><h3>Médecins</h3><p>{counts.medecins}</p></article>
+        <article className="stat-card">
+          <div className="stat-icon blue">👥</div>
+          <div className="stat-content">
+            <div className="stat-value">{counts.patients}</div>
+            <div className="stat-label">Patients</div>
+          </div>
+        </article>
+        
+        <article className="stat-card">
+          <div className="stat-icon amber">📅</div>
+          <div className="stat-content">
+            <div className="stat-value">{counts.appointments}</div>
+            <div className="stat-label">Rendez‑vous</div>
+          </div>
+        </article>
+        
+        <article className="stat-card">
+          <div className="stat-icon green">🩺</div>
+          <div className="stat-content">
+            <div className="stat-value">{counts.consultations}</div>
+            <div className="stat-label">Consultations</div>
+          </div>
+        </article>
+        
+        <article className="stat-card">
+          <div className="stat-icon purple">👨‍⚕️</div>
+          <div className="stat-content">
+            <div className="stat-value">{counts.medecins}</div>
+            <div className="stat-label">Médecins</div>
+          </div>
+        </article>
       </section>
 
-      <div style={{ marginTop: 20 }}>
-        <p>Bienvenue sur le tableau de bord — utilisez la barre latérale pour naviguer.</p>
+      <div className="card fade-in">
+        <div className="card-header">
+          <h3 className="card-title">Bienvenue</h3>
+        </div>
+        <div className="card-body">
+          <p className="text-muted">Utilisez le menu latéral pour gérer les patients, les rendez-vous et vos consultations. Ce tableau de bord vous permet d'avoir une vue globale sur les activités récentes.</p>
+        </div>
       </div>
     </div>
   )

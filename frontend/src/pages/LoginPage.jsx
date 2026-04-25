@@ -28,23 +28,12 @@ export default function LoginPage() {
     }
   };
 
-  const fillDemo = (role) => {
-    const creds = {
-      admin: { email: 'admin@clinique.mg', pwd: 'password' },
-      medecin: { email: 'dr.rakoto@clinique.mg', pwd: 'password' },
-      secretaire: { email: 'secretaire@clinique.mg', pwd: 'password' }
-    };
-    setEmail(creds[role].email);
-    setPassword(creds[role].pwd);
-  };
-
   return (
     <div className="login-page">
       <div className="login-card">
         <div className="login-logo">
-          <div className="logo-big">🏥</div>
-          <h1>GestionClinique Mada</h1>
-          <p>Système de gestion de clinique</p>
+          <img src="/logo.png" alt="TobyCare Logo" style={{ width: '180px', height: 'auto', margin: '0 auto 24px', display: 'block' }} />
+          <p>Système de gestion de clinique premium</p>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -72,21 +61,11 @@ export default function LoginPage() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }} disabled={loading}>
-            {loading ? '⏳ Connexion...' : '🔐 Se connecter'}
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? '⏳ Connexion en cours...' : '🔐 Se connecter'}
           </button>
         </form>
 
-        <div style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 16 }}>
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-3)', marginBottom: 10, textAlign: 'center' }}>
-            Comptes de démonstration :
-          </p>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button className="btn btn-secondary btn-sm" style={{ flex: 1 }} onClick={() => fillDemo('admin')}>Admin</button>
-            <button className="btn btn-secondary btn-sm" style={{ flex: 1 }} onClick={() => fillDemo('medecin')}>Médecin</button>
-            <button className="btn btn-secondary btn-sm" style={{ flex: 1 }} onClick={() => fillDemo('secretaire')}>Secrétaire</button>
-          </div>
-        </div>
       </div>
     </div>
   );

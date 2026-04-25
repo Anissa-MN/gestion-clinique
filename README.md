@@ -1,4 +1,4 @@
-# GestionClinique Mada
+# TobyCare
 
 Application de gestion clinique (backend Express + frontend React + Vite).
 

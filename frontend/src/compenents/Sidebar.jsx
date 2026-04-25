@@ -16,32 +16,38 @@ export default function Sidebar({ open, onClose }) {
 
   const initials = user ? `${user.prenom?.[0]}${user.nom?.[0]}`.toUpperCase() : '?';
 
+  // Fermer la sidebar sur mobile après un clic
+  const handleNavClick = () => {
+    if (window.innerWidth <= 768 && onClose) {
+      onClose();
+    }
+  };
+
   return (
-    <aside className={`sidebar ${open ? 'mobile-open' : ''}`} onClick={(e) => { if (e.target === e.currentTarget && onClose) onClose(); }}>
+    <aside className={`sidebar ${open ? 'mobile-open' : ''}`}>
       <div className="sidebar-logo">
-        <div className="logo-icon">🏥</div>
-        <h1>GestionClinique</h1>
-        <span>Madagascar</span>
+        <img src="/logo.png" alt="TobyCare" style={{ width: '140px', height: 'auto', marginBottom: '8px' }} />
+        <span>Panel Médical</span>
       </div>
 
       <nav className="sidebar-nav">
         <div className="nav-section">
           <div className="nav-section-label">Principal</div>
-          <NavLink to="/dashboard" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+          <NavLink to="/dashboard" onClick={handleNavClick} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
             <span className="nav-icon">📊</span> Tableau de bord
           </NavLink>
         </div>
 
         <div className="nav-section">
           <div className="nav-section-label">Gestion</div>
-          <NavLink to="/patients" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+          <NavLink to="/patients" onClick={handleNavClick} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
             <span className="nav-icon">👥</span> Patients
           </NavLink>
-          <NavLink to="/rendez-vous" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+          <NavLink to="/rendez-vous" onClick={handleNavClick} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
             <span className="nav-icon">📅</span> Rendez-vous
           </NavLink>
           {(isMedecin() || isAdmin()) && (
-            <NavLink to="/consultations" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+            <NavLink to="/consultations" onClick={handleNavClick} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
               <span className="nav-icon">🩺</span> Consultations
             </NavLink>
           )}
@@ -50,7 +56,7 @@ export default function Sidebar({ open, onClose }) {
         {isAdmin() && (
           <div className="nav-section">
             <div className="nav-section-label">Administration</div>
-            <NavLink to="/utilisateurs" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+            <NavLink to="/utilisateurs" onClick={handleNavClick} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
               <span className="nav-icon">⚙️</span> Utilisateurs
             </NavLink>
           </div>
@@ -63,7 +69,9 @@ export default function Sidebar({ open, onClose }) {
           <div className="user-name">{user?.prenom} {user?.nom}</div>
           <div className="user-role">{roleLabels[user?.role] || user?.role}</div>
         </div>
-        <button className="logout-btn" onClick={handleLogout} title="Déconnexion">⏏</button>
+        <button className="logout-btn" onClick={handleLogout} title="Déconnexion">
+          <span style={{ fontSize: '1.2rem' }}>⏏</span>
+        </button>
       </div>
     </aside>
   );
