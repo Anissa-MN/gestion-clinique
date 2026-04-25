@@ -8,7 +8,6 @@ import RendezVousPage from './pages/RendezVousPage'
 import ConsultationsPage from './pages/ConsultationsPage'
 import UtilisateursPage from './pages/UtilisateursPage'
 import Layout from './compenents/Layout'
-import './App.css'
 
 export default function App() {
   const { isAuthenticated } = useAuth()

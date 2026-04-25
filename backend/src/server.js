@@ -35,7 +35,7 @@ app.use('/api/dashboard', require('./routes/dashboard'));
 
 // Route de santé
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'GestionClinique Mada API en ligne', version: '1.0.0' });
+  res.json({ status: 'OK', message: 'TobyCare API en ligne', version: '1.0.0' });
 });
 
 // Gestion des routes non trouvées
@@ -51,7 +51,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🏥 GestionClinique Mada API démarré sur le port ${PORT}`);
+  console.log(`🏥 TobyCare API démarré sur le port ${PORT}`);
   console.log(`📍 http://localhost:${PORT}/api/health`);
 });
 
