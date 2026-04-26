@@ -32,6 +32,7 @@ app.use('/api/medecins', require('./routes/medecins'));
 app.use('/api/rendez-vous', require('./routes/rendezVous'));
 app.use('/api/consultations', require('./routes/consultations'));
 app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/debug', require('./routes/debug'));
 
 // Route de santé
 app.get('/api/health', (req, res) => {
