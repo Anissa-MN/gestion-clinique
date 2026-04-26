@@ -15,6 +15,11 @@ const dbConfig = {
   connectTimeout: 10000
 };
 
+// Option SSL: activez en définissant DB_SSL=true dans les vars d'environnement
+if (process.env.DB_SSL === 'true') {
+  dbConfig.ssl = { rejectUnauthorized: false };
+}
+
 const pool = mysql.createPool(dbConfig);
 
 // Test de connexion
